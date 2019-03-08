@@ -6,13 +6,7 @@ import {
   GET_SMURFS_ERROR,
   ADD_SMURF,
   ADD_SMURF_SUCCESS,
-  ADD_SMURF_ERROR,
-  DELETE_SMURF,
-  DELETE_SMURF_SUCCESS,
-  DELETE_SMURF_ERROR,
-  UPDATE_SMURF,
-  UPDATE_SMURF_SUCCESS,
-  UPDATE_SMURF_ERROR,
+  ADD_SMURF_ERROR
 } from '../actions/index'
 
 // Initial/default state for this projec
