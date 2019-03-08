@@ -1,6 +1,19 @@
-/*
-  Be sure to import in all of the action types from `../actions`
-*/
+// Import all action types from `../actions`
+
+import {
+  GET_SMURFS,
+  GET_SMURFS_SUCCESS,
+  GET_SMURFS_ERROR,
+  ADD_SMURF,
+  ADD_SMURF_SUCCESS,
+  ADD_SMURF_ERROR,
+  DELETE_SMURF,
+  DELETE_SMURF_SUCCESS,
+  DELETE_SMURF_ERROR,
+  UPDATE_SMURF,
+  UPDATE_SMURF_SUCCESS,
+  UPDATE_SMURF_ERROR,
+} from '../actions/index'
 
 // Initial/default state for this projec
 
@@ -21,3 +34,41 @@ const initialState = {
   Components can then read your store as, `state` and not `state.fooReducer`.
 */
 
+export const rootReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case GET_SMURFS:
+      return {
+        ...state,
+        gettingSmurfs: true,
+      }
+    case GET_SMURFS_SUCCESS:
+      return {
+        ...state,
+        gettingSmurfs: false,
+        smurfs: [...state, ...action.payload],
+      }
+    case GET_SMURFS_ERROR:
+      return {
+        ...state,
+        gettingSmurfs: false,
+      }
+    case ADD_SMURF:
+      return {
+        ...state,
+        addingSmurf: true,
+      }
+    case ADD_SMURF_SUCCESS:
+      return {
+        ...state,
+        addingSmurf: false,
+        smurfs: [...action.payload],
+      }
+    case ADD_SMURF_ERROR:
+      return {
+        ...state,
+        addingSmurf: false,
+      }
+    default:
+      return state
+  }
+}
