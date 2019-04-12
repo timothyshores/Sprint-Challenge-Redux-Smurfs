@@ -22,23 +22,39 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
-- [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
-- [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+- [✅] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+Q2.  Describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+Actions are  plain JavaScript objects that describe what happened. They deliver payloads of information that send data from your application to your store.  
+
+Reducers are pure functions without any side effects that take in a state and an action, and return a new state. Reducers specify how the application's state changes in response to actions sent to the store.
+
+The store is an object that holds the whole state tree of your application. The store is known as a single source of truth because the entire state of an application is stored in the store. Also the store is read-only and can only be changed via reducers which are triggered through an action.
+
+- [✅] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application state is the global state for the entire application. Component state is a local state for a given component.
+
+Application state should be used when state is important for the rest of the application and will affect other parts of the application. An example of using application state might be updating an avatar photo where it displays in multiple places. Component can be used when the state only affects that specific component and will not affect another part of the application. An example of this might be to change the color of a button after a user clicks on it. 
+
+- [✅] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Redux Thunk middleware allows you to write action creators that return a function instead of an action. Thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met. The inner function receives the store methods dispatch and getState as parameters.
 
 ## Project Set Up
 
 Follow these steps to set up your project:
 
-- [ ] `fork & clone` this repository.
-- [ ] `cd` into the forked copy of this repository.
-- [ ] **RUN** `yarn` to retrieve all `server-side` the dependencies.
-- [ ] **RUN** `yarn start` or `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
-- [ ] After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an empty Array `[]` returned to you. This is an array that your **API** will be using to store our Smurf Data.
-- [ ] **LOOK** at your `smurfs` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
-- [ ] **Open** `src/index.js` to make sure that your app is ready to roll with the proper middleware.
-- [ ] **cd** into `smurfs` and run `yarn` to retrieve the client side dependencies.
-- [ ] **RUN** `yarn start` to fire up your React application. There ought to be a pretty little message awaiting you welcoming you to the app. `Follow` the prompting.
+- [✅] `fork & clone` this repository.
+- [✅] `cd` into the forked copy of this repository.
+- [✅] **RUN** `yarn` to retrieve all `server-side` the dependencies.
+- [✅] **RUN** `yarn start` or `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
+- [✅] After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an empty Array `[]` returned to you. This is an array that your **API** will be using to store our Smurf Data.
+- [✅] **LOOK** at your `smurfs` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
+- [✅] **Open** `src/index.js` to make sure that your app is ready to roll with the proper middleware.
+- [✅] **cd** into `smurfs` and run `yarn` to retrieve the client side dependencies.
+- [✅] **RUN** `yarn start` to fire up your React application. There ought to be a pretty little message awaiting you welcoming you to the app. `Follow` the prompting.
 
 **LOOK** at all the files you've been given for this project. One important file to note is `server.js`.
 We've added a typical `redux` file structure for you:
@@ -58,8 +74,8 @@ This file contains an **API** that you are going to be interfacing with. Below i
 
 Your finished project must include all of the following requirements:
 
-- [ ] Start in the `index.js` file by following all the prompts there to ensure that `Redux-Thunk` is wired up properly.
-- [ ] Because `Redux-Thunk` is wired up as a middleware for this project. Be sure to utilize thunks when appropriate:
+- [✅] Start in the `index.js` file by following all the prompts there to ensure that `Redux-Thunk` is wired up properly.
+- [✅] Because `Redux-Thunk` is wired up as a middleware for this project. Be sure to utilize thunks when appropriate:
 
 ```js
 return dispatch => {
@@ -74,8 +90,8 @@ return dispatch => {
 
 ### GET '/smurfs'
 
-- [ ] Retrieve an array all the Smurfs in the Smurf DB by writing a `GET` to the endpoint `/smurfs`.
-- [ ] Double check that your response from the server is an array of smurfs.
+- [✅] Retrieve an array all the Smurfs in the Smurf DB by writing a `GET` to the endpoint `/smurfs`.
+- [✅] Double check that your response from the server is an array of smurfs.
 
 ```js
 [
@@ -90,7 +106,7 @@ return dispatch => {
 
 ### POST '/smurfs'
 
-- [ ] Design the functionality to add a smurf to the Smurf DB you'll need all three fields. `name`, `age`, and `height`.
+- [✅] Design the functionality to add a smurf to the Smurf DB you'll need all three fields. `name`, `age`, and `height`.
 
 Example of the shape of data to be sent to the `POST` endpoint:
 
@@ -102,7 +118,7 @@ Example of the shape of data to be sent to the `POST` endpoint:
 }
 ```
 
-- [ ] Double check to make sure that a smurf is created correctly once your functionality is built out.
+- [✅] Double check to make sure that a smurf is created correctly once your functionality is built out.
 
 Initially Brainey will be in the array, but it takes more than one smurf to make the village. Be sure to add a few smurfs to populate our smurf village.
 
