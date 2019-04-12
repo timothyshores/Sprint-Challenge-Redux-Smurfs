@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { getSmurfs, addSmurf } from '../actions/index';
+import { getSmurfs, addSmurf, deleteSmurf } from '../actions/index';
 
 import './App.css';
 /*
@@ -15,15 +15,16 @@ class App extends Component {
     }
 
     handleChange = e => {
-        const target = e.target;
-        const name = target.name;
-        const value = target.value;
-        this.setState({ [name]: value });
+        this.setState({ [e.target.name]: e.target.value });
     }
 
     handleSubmit = e => {
         e.preventDefault();
         this.props.addSmurf(this.state);
+    }
+
+    handleDelete = id => {
+        this.props.deleteSmurf(id)
     }
 
     render() {
@@ -67,6 +68,7 @@ class App extends Component {
                                             <li key={smurf.name}> <strong>Name:</strong> {smurf.name} </li>
                                             <li key={smurf.age}> <strong>Age:</strong> {smurf.age} </li>
                                             <li key={smurf.height}> <strong>Height:</strong> {smurf.height} </li>
+                                            <button key={smurf.id} onClick={() => this.handleDelete(smurf.id)}>DELETE</button>
                                         </div>
                                     )
                                 })}
@@ -91,5 +93,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { getSmurfs, addSmurf }
+    { getSmurfs, addSmurf, deleteSmurf }
 )(App)

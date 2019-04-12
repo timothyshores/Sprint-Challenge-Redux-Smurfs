@@ -8,7 +8,10 @@ import {
     GET_SMURFS_ERROR,
     ADD_SMURF,
     ADD_SMURF_SUCCESS,
-    ADD_SMURF_ERROR
+    ADD_SMURF_ERROR,
+    DELETE_SMURF,
+    DELETE_SMURF_SUCCESS,
+    DELETE_SMURF_ERROR,
 } from '../actions/index';
 
 /*
@@ -73,6 +76,22 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 addingSmurf: false,
+            }
+        case DELETE_SMURF:
+            return {
+                ...state,
+                deletingSmurf: true,
+            }
+        case DELETE_SMURF_SUCCESS:
+            return {
+                ...state,
+                deletingSmurf: false,
+                smurfs: action.payload,
+            }
+        case DELETE_SMURF_ERROR:
+            return {
+                ...state,
+                deletingSmurf: false,
             }
         default:
             return state
