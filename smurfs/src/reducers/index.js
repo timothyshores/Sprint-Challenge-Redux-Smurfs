@@ -2,6 +2,15 @@
   Be sure to import in all of the action types from `../actions`
 */
 
+import {
+  GET_SMURFS,
+  GET_SMURFS_SUCCESS,
+  GET_SMURFS_ERROR,
+  ADD_SMURF,
+  ADD_SMURF_SUCCESS,
+  ADD_SMURF_ERROR
+} from '../actions/index';
+
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
  {
